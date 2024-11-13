@@ -73,7 +73,7 @@ function multipopFromStack()
     {
         const itemsToRemove = Math.min(count, stackArray.length);
         stepCount++;
-        potential = Math.max(0, potential - 1);
+        potential = Math.max(0, potential - itemsToRemove);
 
         for(let i = 0; i < itemsToRemove; i++) 
         {
