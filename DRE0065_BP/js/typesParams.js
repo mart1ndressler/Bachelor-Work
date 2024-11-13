@@ -67,21 +67,24 @@ function displayStack(stackArray)
 {
     const language = localStorage.getItem('language') || 'en';
     const langData = translations[language];
-    console.log("Current language data:", langData);
 
     document.getElementById('dynamicContent').innerHTML = `
+    <div id="mainContainer">
         <div id="stackContainer">
             <div id="stackView" class="stack-view">
                 ${stackArray.map(value => `<div class="stack-item">${value}</div>`).join('')}
             </div>
         </div>
         
-        <div class="stack-controls" id="multipop_buttons">
+        <div class="stack-controls">
             <div class="step-count" id="stepCountDisplay">${langData.stepCount}: ${stepCount}</div>
             <div class="potential-display" id="potentialDisplay">${langData.potential}: ${potential}</div>
-            <button class="btn btn-primary btn-lg" onclick="pushToStack()">${langData.pushButton}</button>
-            <button class="btn btn-primary btn-lg" onclick="popFromStack()">${langData.popButton}</button>
-            <button class="btn btn-primary btn-lg" onclick="multipopFromStack()">${langData.multipopButton}</button>
+            <div id="multipop_buttons">
+                <button class="btn btn-primary btn-lg" onclick="pushToStack()">${langData.pushButton}</button>
+                <button class="btn btn-primary btn-lg" onclick="popFromStack()">${langData.popButton}</button>
+                <button class="btn btn-primary btn-lg" onclick="multipopFromStack()">${langData.multipopButton}</button>
+            </div>
         </div>
+    </div>
     `;
 }
