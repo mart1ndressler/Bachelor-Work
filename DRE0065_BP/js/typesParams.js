@@ -32,10 +32,13 @@ function submitManualParams()
         if(values.length > 0) 
         {
             stackArray = values;
+            stepCount = 0;
             potential = stackArray.length;
             $('#manualParamsModal').modal('hide');
             displayStack(stackArray);
             document.getElementById('manualParamsForm').reset();
+            updateStepCount();
+            updatePotential();
         } 
         else alert(langData.invalidNumberAlert);
     } 
@@ -57,10 +60,13 @@ function submitRandomParams()
     }
 
     stackArray = Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+    stepCount = 0;
     potential = stackArray.length;
     $('#randomParamsModal').modal('hide');
     displayStack(stackArray);
     document.getElementById('randomParamsForm').reset();
+    updateStepCount();
+    updatePotential();
 }
 
 function displayStack(stackArray) 
