@@ -1,13 +1,13 @@
 html, body{
-    height: 100%; 
+    height: 100%;
     margin: 0;
 }
 body{
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
 }
 .navbar-brand{
-    font-size: 24px; 
+    font-size: 24px;
     font-weight: bold;
 }
 #aboutAppBtn{
@@ -15,9 +15,9 @@ body{
     font-weight: bold;
 }
 footer{
-    margin-top: auto; 
-    background-color: #f8f9fa; 
-    padding: 10px 0; 
+    margin-top: auto;
+    background-color: #f8f9fa;
+    padding: 10px 0;
     text-align: center;
     width: 100%;
 }
@@ -25,27 +25,27 @@ footer div{
     padding: 15px;
 }
 footer span{
-    color: black; 
-    font-weight: bold; 
-    font-size: 20px; 
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
 }
 .links{
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     flex-wrap: wrap;
     gap: 10px;
 }
 .alg_parameters{
     justify-content: center;
-    align-items: center; 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 .alg_parameters button{
@@ -98,13 +98,33 @@ footer span{
     gap: 20px;
     margin-bottom: 20px;
     flex-wrap: wrap;
-    padding-top: 120px;
+    padding-top: 250px;
 }
-.stack-view{
+#mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#stackContainer{
+    position: relative;
+    width: 120px;
+    height: 600px;
+    margin-right: 40px;
+    margin-top: -410px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+#stackView.stack-view{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    gap: 0px;
+    overflow-y: auto;
+    max-height: 100%;
+    box-sizing: border-box;
 }
 .stack-item{
     background-color: #007bff;
@@ -120,12 +140,15 @@ footer span{
     border: 4px solid black;
     transition: all 0.3s ease;
 }
+#multipop_buttons{
+    display: flex;
+    gap: 10px;
+}
 #multipop_buttons .btn-lg{
     border: 2px solid black;
-    margin-top: 40%;
-    left: 15px;
     width: 180px;
     height: 80px;
+    margin-top: 10px;
 }
 .step-count{
     font-size: 24px;
@@ -133,25 +156,12 @@ footer span{
     text-align: center;
     color: #333;
 }
-#mainContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-}
-#stackContainer{
-    margin-right: 40px;
-    margin-bottom: 100px;
-}
 .stack-controls{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
-#multipop_buttons{
-    display: flex;
-    gap: 10px;
+    position: relative;
 }
 #backArrow{
     display: none;
@@ -163,10 +173,58 @@ footer span{
     animation: popAnimation 1.0s forwards;
 }
 @keyframes pushAnimation{
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {transform: translateX(-100px); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
 }
 @keyframes popAnimation{
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100px); opacity: 0; }
+    0% {transform: translateX(0); opacity: 1;}
+    100% {transform: translateX(100px); opacity: 0;}
+}
+#currentStepInfo{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+}
+.syntax-info{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#syntaxNextBtn{
+    margin-top: 30px;
+    padding: 18px 40px;
+    font-weight: bold;
+}
+.caseButton{
+    padding: 18px 40px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.syntax-detailed-info{
+    width: 300px;
+    min-height: 200px;
+    margin-left: 20px;
+    border: 3px double #666;
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: auto;
+    text-align: center;
+}
+.popValue{
+    color: green;
+    font-weight: bold;
+}
+.countValue{
+    color: blue;
+    font-weight: bold;
+}
+.emptyStackMessage{
+    color: red;
+    font-weight: bold;
+}
+.noDetail{
+    color: #555;
+    font-style: italic;
 }

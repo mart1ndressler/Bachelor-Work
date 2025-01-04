@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title id="title_main"></title>
+    <link rel="icon" href="../images/logo.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" id="navBrand"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-        <div class="navbar-nav" style="display: flex; align-items: center; gap: 10px;">
-          <a class="btn btn-primary btn-lg" href="#" id="aboutAppBtn" data-toggle="modal" data-target="#aboutModal"></a>
-          <img src="../images/cze_flag.png" alt="CZ" onclick="changeLanguage('cz')" style="width: 60px; cursor: pointer; height: 40px;">
-          <img src="../images/uk_flag.png" alt="EN" onclick="changeLanguage('en')" style="width: 60px; cursor: pointer; height: 40px;">
-        </div>
-        <div class="navbar-nav ml-auto" id="backArrow">
-          <button class="btn btn-outline-secondary" onclick="goBack()" id="backBtn">
-          </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" id="navBrand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <div class="navbar-nav" style="display: flex; align-items: center; gap: 10px;">
+            <a class="btn btn-primary btn-lg" href="#" id="aboutAppBtn" data-toggle="modal" data-target="#aboutModal"></a>
+            <img src="../images/cze_flag.png" alt="CZ" onclick="changeLanguage('cz')" style="width: 60px; cursor: pointer; height: 40px;">
+            <img src="../images/uk_flag.png" alt="EN" onclick="changeLanguage('en')" style="width: 60px; cursor: pointer; height: 40px;">
+          </div>
+          <div class="navbar-nav ml-auto" id="backArrow">
+            <button class="btn btn-outline-secondary" onclick="goBack()" id="backBtn">
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
     <div class="links" id="algorithmLinks">
       <button class="btn btn-link" id="algorithm1" onclick="changeContent('multipop')"></button>
@@ -104,6 +105,60 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="submitRandomParams()" id="generateBtn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="syntaxModal" tabindex="-1" role="dialog" aria-labelledby="syntaxModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="syntaxModalLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="syntaxInfo"></p>
+            <form id="syntaxForm">
+              <div class="form-group">
+                <label for="syntaxInput" id="syntaxInputLabel"></label>
+                <input type="text" class="form-control" id="syntaxInput" placeholder="">
+              </div>
+            </form>
+            <div id="syntaxExample" style="display: none;">
+              <p id="exampleInfo"></p>
+              <button type="button" class="btn btn-secondary" id="nextStepBtn">Next</button>
+            </div>
+            <div id="currentStepInfo"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="startSyntaxExample()" id="startSyntaxBtn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="bestWorstModal" tabindex="-1" role="dialog" aria-labelledby="bestWorstModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bestWorstModalLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="bestWorstModalText"></p>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-primary caseButton" onclick="executeBestCase()">
+                <span id="bestCaseButtonLabel"></span>
+              </button>
+              <button type="button" class="btn btn-primary caseButton" onclick="executeWorstCase()">
+                <span id="worstCaseButtonLabel"></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
